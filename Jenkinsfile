@@ -17,11 +17,10 @@ pipeline {
                 script {
                     def dockerImage = docker.build("mythili121/trend-app:${env.BUILD_NUMBER}", ".")
                     
-                    // The withRegistry block handles Docker login and logout automatically.
                     withCredentials([usernamePassword(credentialsId: DOCKERHUB_CREDENTIALS_ID, passwordVariable: 'DOCKERHUB_TOKEN', usernameVariable: 'DOCKERHUB_USER')]) {
-                         docker.withRegistry('https://registry.hub.docker.com', DOCKERHUB_CREDENTIALS_ID) {
+                        docker.withRegistry('https://registry.hub.docker.com', DOCKERHUB_CREDENTIALS_ID) {
                             dockerImage.push()
-                         }
+                        }
                     }
                 }
             }
@@ -32,9 +31,9 @@ pipeline {
                 script {
                     sh "sed -i 's|image: .*|image: mythili121/trend-app:${env.BUILD_NUMBER}|g' kubernetes/deployment.yaml"
                     
-                    withKubeConfig([credentialsId: KUBECONFIG_CREDENTIALS_ID]) {
-                        sh 'kubectl apply -f kubernetes/'
-                    }
+                    // Use the kubernetesApply method instead of withKubeConfig
+                    kubernetesApply(kubeconfig: KUBECONFIG_CREDENTIALS_ID, file: 'kubernetes/deployment.yaml')
+                    kubernetesApply(kubeconfig: KUBECONFIG_CREDENTIALS_ID, file: 'kubernetes/service.yaml')
                 }
             }
         }
