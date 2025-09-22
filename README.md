@@ -94,15 +94,24 @@ Follow these steps to set up the entire environment from scratch.
 
 ### **1. Jenkins Pipeline Success**
 
-\![Jenkins pipeline success screenshot]
+<img src="https://github.com/mythili1-14/Trend/blob/main/screenshots/Screenshot_20250922_233448.png" alt="Banner" />
 
 ### **2. Deployed Application**
 
-\![Deployed application in browser screenshot]
+<img src="https://github.com/mythili1-14/Trend/blob/main/screenshots/Screenshot_20250923_000953.png" alt="Banner" />
+
 
 ### **3. Grafana Dashboard**
 
-\![Grafana dashboard monitoring screenshot]
+<img src="https://github.com/mythili1-14/Trend/blob/main/screenshots/Screenshot_20250923_002954.png" alt="Banner" />
+
+
+<img src="https://github.com/mythili1-14/Trend/blob/main/screenshots/Screenshot_20250923_002740.png" alt="Banner" />
+
+
+
+## More Screenshots at **Screenshots**
+
 
 -----
 
