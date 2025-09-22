@@ -20,8 +20,9 @@ pipeline {
                     sh 'docker build -t mythili121/trend-app:${env.BUILD_NUMBER} .'
                     
                     withCredentials([usernamePassword(credentialsId: DOCKERHUB_CREDENTIALS_ID, passwordVariable: 'DOCKERHUB_TOKEN', usernameVariable: 'DOCKERHUB_USER')]) {
-                        sh 'echo ${DOCKERHUB_TOKEN} | docker login --username ${DOCKERHUB_USER} --password-stdin'
-                        sh 'docker push mythili121/trend-app:${env.BUILD_NUMBER}'
+                     sh "echo ${env.DOCKERHUB_TOKEN} | docker login --username ${env.DOCKERHUB_USER} --password-stdin"
+                     sh "docker push mythili121/trend-app:${env.BUILD_NUMBER}"
+                       }
                     }
                 }
             }
