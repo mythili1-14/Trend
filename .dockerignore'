@@ -1,0 +1,6 @@
+.git
+.gitignore
+.dockerignore
+.vscode/
+
+node_modules/
