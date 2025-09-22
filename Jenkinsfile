@@ -29,12 +29,12 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
                 script {
-                    // Use a shell script to update the deployment file
                     sh "sed -i 's|image: .*|image: mythili121/trend-app:${env.BUILD_NUMBER}|g' kubernetes/deployment.yaml"
                     
-                    // Use withKubeConfig to set the context for kubectl
-                    withKubeConfig([credentialsId: KUBECONFIG_CREDENTIALS_ID]) {
-                        sh 'kubectl apply -f kubernetes/'
+                    // Use withCredentials to expose the kubeconfig file as an environment variable
+                    withCredentials([file(credentialsId: KUBECONFIG_CREDENTIALS_ID, variable: 'KUBE_CONFIG_FILE')]) {
+                        // Set the KUBECONFIG environment variable for the shell session
+                        sh 'KUBECONFIG=$KUBE_CONFIG_FILE kubectl apply -f kubernetes/'
                     }
                 }
             }
