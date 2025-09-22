@@ -12,17 +12,16 @@ pipeline {
     }
 
     stages {
-        // Remove the manual "Clone Repository" stage. Jenkins already does this.
-
         stage('Build & Push Docker Image') {
             steps {
                 script {
-                    sh 'docker build -t mythili121/trend-app:${env.BUILD_NUMBER} .'
+                    def dockerImage = docker.build("mythili121/trend-app:${env.BUILD_NUMBER}", ".")
                     
+                    // The withRegistry block handles Docker login and logout automatically.
                     withCredentials([usernamePassword(credentialsId: DOCKERHUB_CREDENTIALS_ID, passwordVariable: 'DOCKERHUB_TOKEN', usernameVariable: 'DOCKERHUB_USER')]) {
-                     sh "echo ${env.DOCKERHUB_TOKEN} | docker login --username ${env.DOCKERHUB_USER} --password-stdin"
-                     sh "docker push mythili121/trend-app:${env.BUILD_NUMBER}"
-                       }
+                         docker.withRegistry('https://registry.hub.docker.com', DOCKERHUB_CREDENTIALS_ID) {
+                            dockerImage.push()
+                         }
                     }
                 }
             }
