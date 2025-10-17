@@ -57,63 +57,26 @@ Follow these steps to set up the entire environment from scratch.
 
 ### 2\. **Terraform & AWS Infrastructure**
 
-  - **Create Terraform Configuration:** The `terraform/main.tf` file defines all the necessary AWS infrastructure.
-  - **Provision Infrastructure:** Run the following commands to create the VPC, EKS cluster, and Jenkins EC2 instance.
-    ```bash
-    cd terraform
-    terraform init
-    terraform apply --auto-approve
-    ```
-  - **Get Jenkins Public IP:** The `terraform apply` command will output the public IP of the Jenkins server.
+  - **Create Terraform Configuration:** 
+  - **Get Jenkins Public IP:** 
 
 ### 3\. **Jenkins Configuration**
 
-  - **Access Jenkins:** Open a browser and navigate to `http://<jenkins_public_ip>:8080`.
-  - **Retrieve Admin Password:** SSH into the Jenkins EC2 instance to get the initial admin password.
-    ```bash
-    sudo cat /var/lib/jenkins/secrets/initialAdminPassword
-    ```
-  - **Install Plugins:** Install the required plugins: `Docker Pipeline`, `Git`, `Kubernetes Pipeline`, and `Kubernetes CLI`.
-  - **Add Credentials:** Go to **Manage Jenkins -\> Credentials** and add your DockerHub credentials (`dockerhub-credentials`) and your AWS `kubeconfig` as a secret file (`eks-cluster-credentials`).
-  - **Create Pipeline Job:** Create a new **Pipeline** job, configure it to use Git, and point the script path to `Jenkinsfile`.
-  - **Set up Webhook:** In your GitHub repository settings, create a webhook that points to your Jenkins server's GitHub webhook endpoint to trigger builds automatically on pushes.
+  - **Access Jenkins:** 
+  - **Retrieve Admin Password:**
 
+ 
+  - **Install Plugins:** 
+  - **Add Credentials:**
+  - **Create Pipeline Job:**
+  - **Set up Webhook:** 
 ### 4\. **Monitoring (Prometheus & Grafana)**
 
-  - **Install Helm:** Install Helm on the Jenkins server.
-  - **Deploy Monitoring Stack:** Use Helm to deploy Prometheus and Grafana to your EKS cluster.
-    ```bash
-    helm install prometheus prometheus-community/kube-prometheus-stack
-    helm install grafana grafana/grafana
-    ```
-  - **Access Grafana:** Port-forward the Grafana service to your local machine and use the admin password from the Kubernetes secret to log in.
+  - **Install Helm:**
+  - **Deploy Monitoring Stack:**
 
------
+  - **Access Grafana:**
 
-##  Screenshots
-
-### **1. Jenkins Pipeline Success**
-
-<img src="https://github.com/mythili1-14/Trend/blob/main/screenshots/Screenshot_20250922_233448.png" alt="Banner" />
-
-### **2. Deployed Application**
-
-<img src="https://github.com/mythili1-14/Trend/blob/main/screenshots/Screenshot_20250923_000953.png" alt="Banner" />
-
-
-### **3. Grafana Dashboard**
-
-<img src="https://github.com/mythili1-14/Trend/blob/main/screenshots/Screenshot_20250923_002954.png" alt="Banner" />
-
-
-<img src="https://github.com/mythili1-14/Trend/blob/main/screenshots/Screenshot_20250923_002740.png" alt="Banner" />
-
-
-
-## More Screenshots at **Screenshots**
-
-
------
 
 ##  Submission Artifacts
 
