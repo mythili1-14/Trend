@@ -41,20 +41,9 @@ Follow these steps to set up the entire environment from scratch.
 
 ### 1\. **Initial Setup**
 
-  - **Clone the Repository:**
-    ```bash
-    git clone https://github.com/mythili1-14/Trend.git
-    cd Trend
-    ```
-  - **Configure Git:** Set up your user name and email, and push the codebase to your own GitHub repository.
-    ```bash
-    git init
-    git add .
-    git commit -m "Initial project setup"
-    git remote add origin https://github.com/YourUsername/YourRepo.git
-    git push -u origin main
-    ```
-
+   - **Clone the Repository:**
+   - **Configure Git:** Set up your user name and email, and push the codebase to your own GitHub repository.
+   
 ### 2\. **Terraform & AWS Infrastructure**
 
   - **Create Terraform Configuration:** 
@@ -64,17 +53,15 @@ Follow these steps to set up the entire environment from scratch.
 
   - **Access Jenkins:** 
   - **Retrieve Admin Password:**
-
- 
-  - **Install Plugins:** 
+  -  **Install Plugins:** 
   - **Add Credentials:**
   - **Create Pipeline Job:**
-  - **Set up Webhook:** 
+  - **Set up Webhook:**
+  - 
 ### 4\. **Monitoring (Prometheus & Grafana)**
 
   - **Install Helm:**
   - **Deploy Monitoring Stack:**
-
   - **Access Grafana:**
 
 
