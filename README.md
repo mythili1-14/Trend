@@ -57,7 +57,7 @@ Follow these steps to set up the entire environment from scratch.
   - **Add Credentials:**
   - **Create Pipeline Job:**
   - **Set up Webhook:**
-  - 
+    
 ### 4\. **Monitoring (Prometheus & Grafana)**
 
   - **Install Helm:**
