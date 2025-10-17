@@ -79,7 +79,5 @@ Follow these steps to set up the entire environment from scratch.
 
 
 ##  Submission Artifacts
-
-  - **GitHub Link:** [https://github.com/mythili1-14/Trend.git](https://github.com/mythili1-14/Trend.git)
   - **Application Deployed Kubernetes Load Balancer ARN:**
       - `arn:aws:elasticloadbalancing:us-east-1:551210489378:loadbalancer/net/a33e67da46f79448b9338a67f5302aa1/3b73ad892c548687`
